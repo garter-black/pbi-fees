@@ -15,7 +15,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 LIVE = "https://fees.black.industries/"
 PAGES = "https://pbi-fees.pages.dev/"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
-BEACON = re.compile(rb'<script type="module" src="https://static\.cloudflareinsights\.com[^"]*"[^>]*>\s*</script>', re.I)
+# NOTE: the beacon is injected as <script...></script> + a trailing "\n".
+# Removing only the tag leaves 1 spurious byte, which will either FAIL a correct
+# build or CANCEL against a build that wrongly adds the same newline. Both happened.
+BEACON = re.compile(rb'<script type="module" src="https://static\.cloudflareinsights\.com[^"]*"[^>]*>\s*</script>\n?', re.I)
 
 
 def fetch(url):

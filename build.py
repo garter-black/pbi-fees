@@ -38,7 +38,7 @@ def transform(html):
     out = html
     if "/_pbi/player.js" not in out:
         out = re.sub(r"</head\s*>", PLAYER_TAG + "</head>", out, count=1, flags=re.I)
-    out = re.sub(r"</body\s*>", LAYOUT + convai_tag(NETWORK_DEFAULT) + "\n</body>", out, count=1, flags=re.I)
+    out = re.sub(r"</body\s*>", LAYOUT + convai_tag(NETWORK_DEFAULT) + "</body>", out, count=1, flags=re.I)
     return out
 
 
