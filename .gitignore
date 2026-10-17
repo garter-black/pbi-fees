@@ -1,0 +1,45 @@
+# Build output. dist/ is a build artifact - never hand-edited, never committed.
+dist/
+
+# Dependencies and tool state
+node_modules/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Media never enters git. The media layer is R2 / object storage.
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.avif
+*.svg
+*.ico
+*.bmp
+*.tiff
+*.mp4
+*.webm
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+*.m4a
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+*.pdf
+*.zip
+*.psd
+*.ai
+*.fig
+media/
+assets/media/
